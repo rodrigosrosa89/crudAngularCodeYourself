@@ -1,5 +1,6 @@
 <div class="container">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <button mat-button color="primary" (click)="openDialog(null)">Add Fusca</button>
+    <table mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
 
         <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef> No. </th>
@@ -24,10 +25,10 @@
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef> Actions </th>
             <td mat-cell *matCellDef="let element">
-                <button mat-icon-button color="primary">
+                <button mat-icon-button (click)="editElement(element)" color="primary">
                     <mat-icon>edit</mat-icon>
                   </button>
-                  <button mat-icon-button color="primary">
+                  <button mat-icon-button (click)="deleteElement(element.id)" color="primary">
                     <mat-icon>delete</mat-icon>
                   </button>
             
